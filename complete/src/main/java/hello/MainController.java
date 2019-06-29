@@ -69,14 +69,14 @@ public class MainController {
 		return tradableRepository.findAll();
 	}
 
-	@PostMapping(path="/tradable/get-by-id")
-	public @ResponseBody Tradable getTradableByID(@RequestBody Integer id) {
+	@GetMapping(path="/tradable/get-by-id")
+	public @ResponseBody Tradable getTradableByID(@RequestParam Integer id) {
 		Optional<Tradable>result =  tradableRepository.findById(id);
 		return result.get();
 	}
 
-	@PostMapping(path="/basket/get-by-id")
-	public @ResponseBody Basket getBasketByID(@RequestBody Integer id) {
+	@GetMapping(path="/basket/get-by-id")
+	public @ResponseBody Basket getBasketByID(@RequestParam Integer id) {
 		Optional<Basket> result =  basketRepository.findById(id);
 		return result.get();
 	}
@@ -86,15 +86,15 @@ public class MainController {
 		return basketRepository.save(basket);
 	}
 
-	@PostMapping(path="/basket/delete")
-	public ResponseEntity<String> deleteBasket(@RequestBody Integer id){
+	@GetMapping(path="/basket/delete")
+	public ResponseEntity<String> deleteBasket(@RequestParam Integer id){
 		basketRepository.deleteById(id);
 		return new ResponseEntity(HttpStatus.OK);
 	}
 
 
-	@PostMapping(path="/account/get-by-id")
-	public @ResponseBody Account getAccountByID(@RequestBody Integer id) {
+	@GetMapping(path="/account/get-by-id")
+	public @ResponseBody Account getAccountByID(@RequestParam Integer id) {
 		Optional<Account> result =  accountRepository.findById(id);
 		return result.get();
 	}
