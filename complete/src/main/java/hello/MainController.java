@@ -105,5 +105,9 @@ public class MainController {
 	}
 
 
+	@GetMapping(path="/health")
+	public @ResponseBody String health() {
+		return "Healthy";
+	}
 
 }
