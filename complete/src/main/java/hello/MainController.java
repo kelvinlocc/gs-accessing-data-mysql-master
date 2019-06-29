@@ -16,6 +16,7 @@ public class MainController {
 	private CurrencyRepository currencyRepository;
 	private TradableRepository tradableRepository;
 	private BasketRepository basketRepository;
+	private AccountRepository accountRepository;
 
 
 
@@ -90,5 +91,19 @@ public class MainController {
 		basketRepository.deleteById(id);
 		return new ResponseEntity(HttpStatus.OK);
 	}
+
+
+	@GetMapping(path="/account/get-by-id")
+	public @ResponseBody Account getAccountByID(@RequestParam Integer id) {
+		Optional<Account> result =  accountRepository.findById(id);
+		return result.get();
+	}
+
+	@PostMapping(path="/account/save")
+	public @ResponseBody Account saveAccount(@RequestParam Account account) {
+		return accountRepository.save(account);
+	}
+
+
 
 }

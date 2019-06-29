@@ -11,6 +11,9 @@ public class Basket {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
+
+    private String basketItem;
+
     private String status;
 
     public Integer getId() {
@@ -27,6 +30,14 @@ public class Basket {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getBasketItem() {
+        return basketItem;
+    }
+
+    public void setBasketItem(String basketItem) {
+        this.basketItem = basketItem;
     }
 
 

@@ -10,9 +10,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Repository
 public interface CurrencyRepository extends CrudRepository<Currency, Integer> {
-//
-//    @Query("SELECT new Currency(c.id, c.currencyCode, c.exchangeCurrencyCode, c.rate) " +
-//            " FROM Currency c " +
-//            " WHERE c.currencyCode = :currencyCode")
-//    Currency findCurrencyByName(@PathVariable("currencyCode") String currencyCode);
+
 }
