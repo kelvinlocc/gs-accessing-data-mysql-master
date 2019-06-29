@@ -10,10 +10,19 @@ public class Currency {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
-
     private String currencyCode;
     private String exchangeCurrencyCode;
     private String rate;
+
+	public Currency() {
+	}
+
+	public Currency(Integer id, String currencyCode, String exchangeCurrencyCode, String rate) {
+		this.id = id;
+		this.currencyCode = currencyCode;
+		this.exchangeCurrencyCode = exchangeCurrencyCode;
+		this.rate = rate;
+	}
 
 	public String getRate() {
 		return rate;
