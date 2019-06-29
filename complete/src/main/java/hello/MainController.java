@@ -56,8 +56,8 @@ public class MainController {
 		return currencyRepository.findAll();
 	}
 
-	@GetMapping(path="/rate/get-by-name")
-	public @ResponseBody Currency getCurrencyByName(@RequestParam String currencyCode) {
+	@PostMapping(path="/rate/get-by-name")
+	public @ResponseBody Currency getCurrencyByName(@RequestBody String currencyCode) {
 		// This returns a JSON or XML with the users
 //		return currencyRepository.findCurrencyByName(currencyCode);
 		return new Currency();
@@ -70,37 +70,37 @@ public class MainController {
 	}
 
 	@PostMapping(path="/tradable/get-by-id")
-	public @ResponseBody Tradable getTradableByID(@RequestParam Integer id) {
+	public @ResponseBody Tradable getTradableByID(@RequestBody Integer id) {
 		Optional<Tradable>result =  tradableRepository.findById(id);
 		return result.get();
 	}
 
 	@PostMapping(path="/basket/get-by-id")
-	public @ResponseBody Basket getBasketByID(@RequestParam Integer id) {
+	public @ResponseBody Basket getBasketByID(@RequestBody Integer id) {
 		Optional<Basket> result =  basketRepository.findById(id);
 		return result.get();
 	}
 
 	@PostMapping(path="/basket/save")
-	public @ResponseBody Basket saveBasket(@RequestParam Basket basket) {
+	public @ResponseBody Basket saveBasket(@RequestBody Basket basket) {
 		return basketRepository.save(basket);
 	}
 
 	@PostMapping(path="/basket/delete")
-	public ResponseEntity<String> deleteBasket(@RequestParam Integer id){
+	public ResponseEntity<String> deleteBasket(@RequestBody Integer id){
 		basketRepository.deleteById(id);
 		return new ResponseEntity(HttpStatus.OK);
 	}
 
 
 	@PostMapping(path="/account/get-by-id")
-	public @ResponseBody Account getAccountByID(@RequestParam Integer id) {
+	public @ResponseBody Account getAccountByID(@RequestBody Integer id) {
 		Optional<Account> result =  accountRepository.findById(id);
 		return result.get();
 	}
 
 	@PostMapping(path="/account/save")
-	public @ResponseBody Account saveAccount(@RequestParam Account account) {
+	public @ResponseBody Account saveAccount(@RequestBody Account account) {
 		return accountRepository.save(account);
 	}
 
