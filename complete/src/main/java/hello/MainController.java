@@ -69,13 +69,13 @@ public class MainController {
 		return tradableRepository.findAll();
 	}
 
-	@GetMapping(path="/tradable/get-by-id")
+	@PostMapping(path="/tradable/get-by-id")
 	public @ResponseBody Tradable getTradableByID(@RequestParam Integer id) {
 		Optional<Tradable>result =  tradableRepository.findById(id);
 		return result.get();
 	}
 
-	@GetMapping(path="/basket/get-by-id")
+	@PostMapping(path="/basket/get-by-id")
 	public @ResponseBody Basket getBasketByID(@RequestParam Integer id) {
 		Optional<Basket> result =  basketRepository.findById(id);
 		return result.get();
@@ -93,7 +93,7 @@ public class MainController {
 	}
 
 
-	@GetMapping(path="/account/get-by-id")
+	@PostMapping(path="/account/get-by-id")
 	public @ResponseBody Account getAccountByID(@RequestParam Integer id) {
 		Optional<Account> result =  accountRepository.findById(id);
 		return result.get();
