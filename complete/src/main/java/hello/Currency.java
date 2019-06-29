@@ -11,7 +11,6 @@ public class Currency {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
     private String currencyCode;
-    private String exchangeCurrencyCode;
     private String rate;
 
 	public Currency() {
@@ -20,7 +19,6 @@ public class Currency {
 	public Currency(Integer id, String currencyCode, String exchangeCurrencyCode, String rate) {
 		this.id = id;
 		this.currencyCode = currencyCode;
-		this.exchangeCurrencyCode = exchangeCurrencyCode;
 		this.rate = rate;
 	}
 
@@ -38,14 +36,6 @@ public class Currency {
 
 	public void setCurrencyCode(String currencyCode) {
 		this.currencyCode = currencyCode;
-	}
-
-	public String getExchangeCurrencyCode() {
-		return exchangeCurrencyCode;
-	}
-
-	public void setExchangeCurrencyCode(String exchangeCurrencyCode) {
-		this.exchangeCurrencyCode = exchangeCurrencyCode;
 	}
 
 	public Integer getId() {
